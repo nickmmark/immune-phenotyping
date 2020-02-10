@@ -13,7 +13,7 @@ Modern single cell analysis techniques capture large amounts of high dimensional
 # examples
 I examined a dataset of samples obtained from individuals undergoing surgical resection of NSCLC; these samples were processed fresh into a single cell suspension and stained with a panel of >30 antibodies against surface and intracellular antigens and >50,000 events were obtained by flow cytometry. 
 
-![Immune populations in human NSCLC](figures/lung tumor w eigenvectors.png)
+![Immune populations in human NSCLC](/figures/lung tumor w eigenvectors.png)
 
 # version/to do
 current version 0.1.0 - this is a work in progress

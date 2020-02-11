@@ -19,6 +19,10 @@ Overlapping immune cell phenotypes of tumor and lung samples
 With Eigenvectors shown
 ![overlapping immune phenotypes of tumor and lung samples with Eigenvectors](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/lung%20tumor%20w%20eigenvectors.png)
 
+Paired immune cell populations (CD45+) from lung tumor and non-tumor adjacent lung were concatenated (50,000 events from each sample) and analyzed using tSNE. Specific immune cell populations can be labeled (such as CD4+, CD8+, etc).
+![t-Distributed Stochastic Neighbor Embedding demonstrates overlapping immune cell populations in paired NSCLC and lung samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
+
+
 # version/to do
 current version 0.1.0 - this is a work in progress
 

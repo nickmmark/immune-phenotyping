@@ -17,6 +17,20 @@ Overlapping immune cell phenotypes of tumor and lung samples
 With Eigenvectors shown
 ![overlapping immune phenotypes of tumor and lung samples with Eigenvectors](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/lung%20tumor%20w%20eigenvectors.png)
 
+We can also look at other clinical parameters, such as if the sample came from a patient with COPD or not, based on either the degree of airflow obstruction ([GOLD stage](https://goldcopd.org/wp-content/uploads/2018/02/WMS-GOLD-2018-Feb-Final-to-print-v2.pdf)) or the degree of emphysema as measured radiologically ([Goddard score](https://www.researchgate.net/publication/316458451_Updates_in_computed_tomography_assessment_of_emphysema_using_computed_tomography_lung_analysis)).  For example:
+```R
+# define if the sample comes from a person with COPD or not based on GOLD stage
+copd <- mutate(copd, new_tumor = ifelse(tumor < 1, "Lung", "Tumor"))
+copd <- na.omit(copd)
+copd <- select(copd, sample, tumor,                               # sample information
+               cd45, cd4, cd8, pmn, mac, mono, nk, nkt, b,        # basic cell types
+               th17, th1, treg, cd8ifng,                          # cytokine profiles
+               gdtil17, cd4il22                                   # specific effector subsets
+               )          
+minus_gold <- select(copd, -sample, -tumor)
+```
+
+
 # t-Distributed Stochastic Neighbor Embedding (tSNE)
 [t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) is an non-linear algorithm for performing dimensionality reduction, allowing visualization of complex multi-dimensional data in fewer dimensions while maintaining the overall structure of the data. Importantly, tSNE is able to preserve *BOTH* the local and global structures of the data. tSNE was first described in 2008 and is a powerful and useful technique that can be done either natively in FloJo or R using the '''rTsne''' package.
 

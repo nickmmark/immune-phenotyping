@@ -22,11 +22,35 @@ With Eigenvectors shown
 
 For a complete description of the underlying algorithm, see [here](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
 
-In this example, Paired immune cell populations (CD45+) from lung tumor and non-tumor adjacent lung were concatenated (50,000 events from each sample) and analyzed using tSNE. Specific immune cell populations can be labeled according to origin (lung vs tumor), immune effector cell type (CD4+, CD8+, gamma delta TCR+), or intracellular cytokine production (interferon gamma, IL-17a, etc).
+In this example, Paired immune cell populations (CD45+) from lung tumor and non-tumor adjacent lung were concatenated (50,000 events from each sample) and analyzed using tSNE. Specific immune cell populations can be labeled according to origin (lung vs tumor), immune effector cell type (CD4+, CD8+, gamma delta TCR+), or intracellular cytokine production (interferon gamma, IL-17a, etc). We can export flow cytometry data in a dataframe such that each row represents a single event (cell) and each column represents the values for each marker. 
+
+```R
+training_set <- loadExcel("NSCLC.xlsx",1)
+immune_cell_tsne <- Rtsne(training_set[,-1], dims = 2, perplexity=25, theta = 0.2, verbose = TRUE, PCA = TRUE, max_iter = 500)
+plot(immune_cell_tsne$Y, t='n', main="immune_cell_tsne")
+text(immune_cell_tsne$Y, labels=train$label, col=colors[train$label])
+```
+
+Hyperparameters:
+- dimensions
+- perplexity
+- maximum iterations
+- theta (speed/accuracy tradeoff)
+- PCA (true or false)
 
 ![t-Distributed Stochastic Neighbor Embedding demonstrates overlapping immune cell populations in paired NSCLC and lung samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
 
 ![Another example using different samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
+
+Here is a summary of tSNE findings for multiple concatenated lung and tumor samples:
+![lung and tumor summary(]https://github.com/nickmmark/immune-phenotyping/blob/master/figures/tsne_summary.png)
+
+
+Some important limitations of tSNE for immune cell phenotyping
+- computationally expensive; with O(n2) time complexity this can takes a long time (makes sense to setup a cloud VM to run for datasets larger than 100k cells
+- non-deterministic; running the same data can produce (slightly) different results
+- sensitive to hyper-parameter tuning; make sure to standardize the settings used
+- 
 
 
 # Other techniques

@@ -3,12 +3,14 @@ This repo describes techniques for immune cell phenotyping of non-small cell lun
 
 # background
 Modern single cell analysis techniques capture large amounts of high dimensional data: for example a comprehensive flow cytometry panel can stain cells with dozens of markers and identify numerous cell types. Interpreting this high dimensional data can be challenging. Dimensional reduction techniques can be used to either to analyze raw flow cytometry data (to naively identify cell populations) or to analyze populations identified through traditional gating approaches (to identify population changes between groups).
+
 [more background and details needed]
 
 # specific techniques for dimensional reduction
-- [Principle Component Analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis)
-- [t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)
+- [Principle Component Analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) is a linear dimensional reduction algorithm. PCA preserves the global structure of the data but not local structure: PCA places dissimilar points far apart but when reducing high dimensional data to a low dimension manifold similar points are not placed close together.
 - [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
+- [t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) is an non-linear algorithm for performing dimensionality reduction, allowing visualization of complex multi-dimensional data in fewer dimensions while still maintaining the structure of the data. tSNE is able to preserve *BOTH* the local and global structures of the data.
+For a complete description of the underlying algorithm, see [here](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
 
 # examples
 I examined a dataset of samples obtained from individuals undergoing surgical resection of NSCLC; these samples were processed fresh into a single cell suspension and stained with a panel of >30 antibodies against surface and intracellular antigens and >50,000 events were obtained by flow cytometry. 
@@ -31,3 +33,4 @@ current version 0.1.0 - this is a work in progress
 # references
 - Thorsson V et al, [The Immune Landscape of Cancer](https://www.ncbi.nlm.nih.gov/pubmed/29628290), Immunity. 2018
 - Mark NM et al, [Chronic Obstructive Pulmonary Disease Alters Immune Cell Composition and Immune Checkpoint Inhibitor Efficacy in Non-Small Cell Lung Cancer](https://www.ncbi.nlm.nih.gov/pubmed/28934595), AJRCCM 2018
+- [FloJo tSNE documentation](http://docs.flowjo.com/d2/advanced-features/dimensionality-reduction/tsne/)

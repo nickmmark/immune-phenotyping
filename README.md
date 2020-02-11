@@ -1,11 +1,8 @@
 ## Dimensional Reduction and Unsupervised Learning for Immune Cell Phenotyping
 This repo describes techniques for immune cell phenotyping of non-small cell lung cancer using PCA, tSNE, and other techniques in R and FloJo. 
-![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
-
-## background
 Modern single cell analysis techniques capture large amounts of high dimensional data: for example a comprehensive flow cytometry panel can stain cells with dozens of markers and identify numerous cell types. Interpreting this high dimensional data can be challenging. Dimensional reduction techniques can be used to either to analyze raw flow cytometry data (to naively identify cell populations) or to analyze populations identified through traditional gating approaches (to identify population changes between groups).
 
-[more background and details needed]
+![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
 
 # specific techniques for dimensional reduction
 - [Principle Component Analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) is a linear dimensional reduction algorithm. PCA preserves the global structure of the data but not local structure: PCA places dissimilar points far apart but when reducing high dimensional data to a low dimension manifold similar points are not placed close together.

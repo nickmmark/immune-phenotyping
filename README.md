@@ -5,10 +5,6 @@ Modern single cell analysis techniques (flow cytometry, mass cytometry, single c
 
 ![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
 
-# specific techniques for dimensional reduction
-
-- [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
-- 
 
 # Principle Component Analysis (PCA)
 [Principle Component Analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) is a linear dimensional reduction algorithm with O(n2) time complexity. PCA is perhaps the most widely used dimensional reduction technique (having been first described in 1933) and has many implementations in R and other programming languages. PCA preserves the global structure of the data but not local structure: PCA places dissimilar points far apart but when reducing high dimensional data to a low dimension manifold similar points are not placed close together.
@@ -33,9 +29,16 @@ In this example, Paired immune cell populations (CD45+) from lung tumor and non-
 ![Another example using different samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
 
 
+# Other techniques
+- [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
+- 
 
 ## version/to do
-current version 0.1.0 - this is a work in progress
+current version 0.1.1
+[ ]current version 0.1.0 - this is a work in progress
+[ ]need to cleanup the tSNE R code
+[ ]add more detailed examples and explanations
+[ ]add additional references
 
 ## references
 - Thorsson V et al, [The Immune Landscape of Cancer](https://www.ncbi.nlm.nih.gov/pubmed/29628290), Immunity. 2018

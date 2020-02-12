@@ -59,17 +59,18 @@ Hyperparameters:
 ![Another example using different samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
 
 Here is a summary of tSNE findings for multiple concatenated lung and tumor samples:
-![lung and tumor summary(]https://github.com/nickmmark/immune-phenotyping/blob/master/figures/tsne_summary.png)
+![lung and tumor summary](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/tsne_summary.png)
 
 
 Some important limitations of tSNE for immune cell phenotyping
-- computationally expensive; with O(n2) time complexity this can takes a long time (makes sense to setup a cloud VM to run for datasets larger than 100k cells
+- computationally expensive; with O(n2) time complexity this can take a long time to run (it makes sense to setup a cloud VM with lots of RAM and compute to run for datasets larger than 100k cells)
 - non-deterministic; running the same data can produce (slightly) different results
-- sensitive to hyper-parameter tuning; make sure to standardize the settings used
-- 
+- sensitive to hyper-parameter tuning; make sure to empirically optimize and then standardize the settings used
+- images can be deceptive; although tSNE space preserves the local and global aspects of the data, the relative size of different regions is not representative
 
 
 # Other techniques
+- [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets.
 - [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
 - 
 
@@ -85,3 +86,4 @@ current version 0.1.1
 - Mark NM et al, [Chronic Obstructive Pulmonary Disease Alters Immune Cell Composition and Immune Checkpoint Inhibitor Efficacy in Non-Small Cell Lung Cancer](https://www.ncbi.nlm.nih.gov/pubmed/28934595), AJRCCM 2018
 - [FloJo tSNE documentation](http://docs.flowjo.com/d2/advanced-features/dimensionality-reduction/tsne/)
 - [Comprehensive Guide on t-SNE algorithm with implementation in R & Python](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
+- Becht E et al, [Evaluation of UMAP as an alternative to t-SNE for single-cell data](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf)

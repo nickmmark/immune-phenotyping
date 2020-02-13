@@ -4,6 +4,7 @@ This repo describes techniques for immune cell phenotyping of non-small cell lun
 Modern [single cell analysis](https://en.wikipedia.org/wiki/Single-cell_analysis) techniques (flow cytometry, mass cytometry, single cell RNA sequencing, etc) capture massive amounts of high dimensional data: for example a comprehensive flow cytometry panel can stain cells with dozens of markers and identify hundreds of distinct cell types. Interpreting this high dimensional data can be challenging. Dimensional reduction techniques can be used either to analyze raw flow cytometry data (to naively identify cell populations) or to analyze populations identified through traditional gating approaches (to identify population changes between groups). These techniques can be used to simplify complex high dimensional data and identify novel cell populations, such as interferon gamma producing immune cells in immune cells isolated from non-small cell lung cancer (NSCLC) tumors:
 
 ![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
+_tSNE plot CD45+ immune cells derived from NSCLC tumor and non-tumor adjacent lung tissue, z-axis and color indicates the degree of IFN-gamma production_
 
 
 # Principle Component Analysis (PCA)
@@ -11,11 +12,12 @@ Modern [single cell analysis](https://en.wikipedia.org/wiki/Single-cell_analysis
 
 In this example of immune cell phenotyping of NSCLC and lung tissue, I examined a dataset of samples obtained from individuals undergoing surgical resection of NSCLC; these samples were processed fresh into a single cell suspension and stained with a panel of >30 antibodies against surface and intracellular antigens and >50,000 events were obtained by flow cytometry. 
 
-Overlapping immune cell phenotypes of tumor and lung samples
 ![overlapping immune phenotypes of tumor and lung samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/lung%20tumor.png)
+_Overlapping immune cell phenotypes of tumor and lung samples_
 
-With Eigenvectors shown
+
 ![overlapping immune phenotypes of tumor and lung samples with Eigenvectors](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/lung%20tumor%20w%20eigenvectors.png)
+_Immune cell populations in tumor and lung samples with Eigenvectors shown_
 
 We can also look at other clinical parameters, such as if the sample came from a patient with COPD or not, based on either the degree of airflow obstruction ([GOLD stage](https://goldcopd.org/wp-content/uploads/2018/02/WMS-GOLD-2018-Feb-Final-to-print-v2.pdf)) or the degree of emphysema as measured radiologically ([Goddard score](https://www.researchgate.net/publication/316458451_Updates_in_computed_tomography_assessment_of_emphysema_using_computed_tomography_lung_analysis)).  For example:
 ```R
@@ -48,19 +50,19 @@ text(immune_cell_tsne$Y, labels=train$label, col=colors[train$label])
 ```
 
 Hyperparameters:
-- dimensions - how many dimensions are desired (usually 2)
-- perplexity
-- maximum iterations
-- theta (speed/accuracy tradeoff)
-- PCA (true or false)
-
+- *dimensions* - how many dimensions are desired (usually 2)
+- *perplexity* - increase with larger number of cells or with a denser cluster; typically 25-100
+- *maximum iterations* - typically 500 or 1000
+- *theta* (speed/accuracy tradeoff) - 
+- *PCA* (true or false) - 
+- *eta* (learning rate) - controls how much the weights are adjusted at each iteration. Optimally set at 7% the number of cells being mapped into tSNE space.
 
 In this example, we can see that t-Distributed Stochastic Neighbor Embedding demonstrates overlapping immune cell populations in paired NSCLC and lung samples. Specifically, we can see that there are similar/overlapping immune cell populations in both the lung and tumor populations. 
 ![Another example using different samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
 
 Here is a summary of tSNE findings for multiple concatenated lung and tumor samples:
 ![lung and tumor summary](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/tsne_summary.png)
-
+_tSNE analysis of multiple lung tumors - note the overlapping immune phenotype for several different lung/tumor samples_
 
 While tSNE is a powerful and useful tool for analyzing immune cell populations, there are some important limitations of tSNE to consider:
 - computationally expensive; with O(n2) time complexity this can take a long time to run (it makes sense to setup a cloud VM with lots of RAM and compute to run for datasets larger than 100k cells)

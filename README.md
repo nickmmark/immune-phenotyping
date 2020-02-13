@@ -3,7 +3,8 @@ This repo describes techniques for immune cell phenotyping of non-small cell lun
 
 Modern [single cell analysis](https://en.wikipedia.org/wiki/Single-cell_analysis) techniques (flow cytometry, mass cytometry, single cell RNA sequencing, etc) capture massive amounts of high dimensional data: for example a comprehensive flow cytometry panel can stain cells with dozens of markers and identify hundreds of distinct cell types. Interpreting this high dimensional data can be challenging. Dimensional reduction techniques can be used either to analyze raw flow cytometry data (to naively identify cell populations) or to analyze populations identified through traditional gating approaches (to identify population changes between groups). These techniques can be used to simplify complex high dimensional data and identify novel cell populations, such as interferon gamma producing immune cells in immune cells isolated from non-small cell lung cancer (NSCLC) tumors:
 
-![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
+    ![3d render of IFN gamma expression overlayed onto a tSNE plot of a concatenated NSCLC tumor and non-adjacent lung sample](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/IFNgamma_animated.gif)
+
 _tSNE plot CD45+ immune cells derived from NSCLC tumor and non-tumor adjacent lung tissue, z-axis and color indicates the degree of IFN-gamma production_
 
 
@@ -78,10 +79,10 @@ While tSNE is a powerful and useful tool for analyzing immune cell populations, 
 
 ## version/to do
 current version 0.1.1
-[ ]current version 0.1.0 - this is a work in progress
-[ ]need to cleanup the tSNE R code
-[ ]add more detailed examples and explanations
-[ ]add additional references
+- [ ]current version 0.1.0 - this is a work in progress
+- [ ]need to cleanup the tSNE R code
+- [ ]add more detailed examples and explanations
+- [ ]add additional references
 
 ## references
 - Thorsson V et al, [The Immune Landscape of Cancer](https://www.ncbi.nlm.nih.gov/pubmed/29628290), Immunity. 2018

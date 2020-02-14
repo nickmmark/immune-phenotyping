@@ -37,11 +37,11 @@ This shows us the the effect of COPD being present in the resected non-adjacent 
 ![example showing the effect of COPD present in the resected non-adjacent lung on immune cell phenotype in the resected tumor](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/COPD_present_or_not.png)
 
 ### t-Distributed Stochastic Neighbor Embedding (tSNE)
-[t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) is an non-linear algorithm for performing dimensionality reduction, allowing visualization of complex multi-dimensional data in fewer dimensions while maintaining the overall structure of the data. tSNE was first described in 2008 and has become a widely used dimensional reduction technique (see the creator, [Laurens van der Maaten's website](https://lvdmaaten.github.io/tsne/) for more details). Importantly, tSNE is able to preserve *BOTH* the local and global structures of the data. tSNE was first described in 2008 and is a powerful and useful technique that can be done either natively in FloJo or R using the '''rTsne''' package. For a complete description of the underlying algorithm, see [here](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
+[t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) is an non-linear algorithm for performing dimensionality reduction, allowing visualization of complex multi-dimensional data in fewer dimensions while maintaining the overall structure of the data. tSNE was first described in 2008 and has become a widely used dimensional reduction technique (see the creator, [Laurens van der Maaten's website](https://lvdmaaten.github.io/tsne/) for more details). Importantly, tSNE is able to preserve *BOTH* the local and global structures of the data. tSNE was first described in 2008 and is a powerful and useful technique that can be done either natively in FloJo or R using the ```rTsne``` package. For a complete description of the underlying algorithm, see [here](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
 
 For tSNE in FloJo there is excellent documentation available [here](http://docs.flowjo.com/d2/advanced-features/dimensionality-reduction/tsne/). 
 
-To perform tSNE in R, we can use the '''rTsne''' package. In this example, Paired immune cell populations (CD45+) from lung tumor and non-tumor adjacent lung were concatenated (50,000 events from each sample) and analyzed using tSNE. Specific immune cell populations can be labeled according to origin (lung vs tumor), immune effector cell type (CD4+, CD8+, gamma delta TCR+), or intracellular cytokine production (interferon gamma, IL-17a, etc). We can export flow cytometry data in a dataframe such that each row represents a single event (cell) and each column represents the values for each marker. 
+To perform tSNE in R, we can use the ```rTsne``` package. In this example, Paired immune cell populations (CD45+) from lung tumor and non-tumor adjacent lung were concatenated (50,000 events from each sample) and analyzed using tSNE. Specific immune cell populations can be labeled according to origin (lung vs tumor), immune effector cell type (CD4+, CD8+, gamma delta TCR+), or intracellular cytokine production (interferon gamma, IL-17a, etc). We can export flow cytometry data in a dataframe such that each row represents a single event (cell) and each column represents the values for each marker. 
 
 ```R
 training_set <- loadExcel("NSCLC.xlsx",1)
@@ -58,7 +58,7 @@ When performing tSNE it is important to carefully select hyperparameters:
 - **PCA** (true or false) - 
 - **eta** (learning rate) - controls how much the weights are adjusted at each iteration. Optimally set at 7% the number of cells being mapped into tSNE space.
 
-Hyperparameter tuning requires some experimentation. I recommend downsampling the dataset to 10,000 events while optimizing the parameters.
+Hyperparameter tuning requires experimentation. I recommend downsampling the dataset to 10,000 events while optimizing the parameters to save time.
 
 In this example, we can see that t-Distributed Stochastic Neighbor Embedding demonstrates overlapping immune cell populations in paired NSCLC and lung samples. Specifically, we can see that there are similar/overlapping immune cell populations in both the lung and tumor populations. 
 ![Another example using different samples](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/27-Jul-2017-Layout.png)
@@ -70,8 +70,9 @@ _tSNE analysis of multiple lung tumors - note the overlapping immune phenotype f
 While tSNE is a powerful and useful tool for analyzing immune cell populations, there are some important limitations of tSNE to consider:
 - computationally expensive; with O(n2) time complexity this can take a long time to run (it makes sense to setup a cloud VM with lots of RAM and compute to run for datasets larger than 100k cells)
 - non-deterministic; running the same data can produce (slightly) different results
-- sensitive to hyper-parameter tuning; make sure to empirically optimize and then standardize the settings used
+- sensitive to hyper-parameters; make sure to empirically tune and then standardize the settings used
 - images can be deceptive; although tSNE space preserves the local and global aspects of the data, the relative area of different regions is not representative of the number of cells
+- sensitive to the compensation of the data; one of the strengths of tSNE is that it can accomodate log distributed data, however if there are events off scale it will distort the analysis
 
 
 ### Other techniques

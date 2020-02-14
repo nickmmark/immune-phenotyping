@@ -21,17 +21,6 @@ _Overlapping immune cell phenotypes of tumor and lung samples_
 _Immune cell populations in tumor and lung samples with Eigenvectors shown_
 
 We can also look at other clinical parameters, such as if the sample came from a patient with COPD or not, based on either the degree of airflow obstruction ([GOLD stage](https://goldcopd.org/wp-content/uploads/2018/02/WMS-GOLD-2018-Feb-Final-to-print-v2.pdf)) or the degree of emphysema as measured radiologically ([Goddard score](https://www.researchgate.net/publication/316458451_Updates_in_computed_tomography_assessment_of_emphysema_using_computed_tomography_lung_analysis)).  For example:
-```R
-# define if the sample comes from a person with COPD or not based on GOLD stage
-copd <- mutate(copd, new_tumor = ifelse(tumor < 1, "Lung", "Tumor"))
-copd <- na.omit(copd)
-copd <- select(copd, sample, tumor,                               # sample information
-               cd45, cd4, cd8, pmn, mac, mono, nk, nkt, b,        # basic cell types
-               th17, th1, treg, cd8ifng,                          # cytokine profiles
-               gdtil17, cd4il22                                   # specific effector subsets
-               )          
-minus_gold <- select(copd, -sample, -tumor)
-```
 
 ```R
 # define the presence of COPD

@@ -94,6 +94,10 @@ While tSNE is a powerful and useful tool for analyzing immune cell populations, 
 - images can be deceptive; although tSNE space preserves the local and global aspects of the data, the relative area of different regions is not representative of the number of cells
 - sensitive to the compensation of the data; one of the strengths of tSNE is that it can accomodate log distributed data, however if there are events off scale it will distort the analysis
 
+### T cell receptor sequence analysis
+Examining TCR sequences, consensus sequences, and shared sequences in both tumor and adjacent tissue using the [```tcr``` R package](https://cran.r-project.org/web/packages/tcR/vignettes/tcrvignette.html).
+
+
 
 ### Other techniques
 - [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets. UMAP is available as an R package [here](https://github.com/tkonopka/umap).

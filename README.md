@@ -8,7 +8,7 @@ Modern [single cell analysis](https://en.wikipedia.org/wiki/Single-cell_analysis
 _tSNE plot CD45+ immune cells derived from NSCLC tumor and non-tumor adjacent lung tissue, z-axis and color indicates the degree of IFN-gamma production_
 
 
-# Principle Component Analysis (PCA)
+### Principle Component Analysis (PCA)
 [Principle Component Analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) is a linear dimensional reduction algorithm with O(n2) time complexity. PCA is perhaps the most widely used dimensional reduction technique (having been first described in 1933) and has many implementations in R and other programming languages. PCA preserves the global structure of the data but not local structure: PCA places dissimilar points far apart but when reducing high dimensional data to a low dimension manifold similar points are not placed close together.
 
 In this example of immune cell phenotyping of NSCLC and lung tissue, I examined a dataset of samples obtained from individuals undergoing surgical resection of NSCLC; these samples were processed fresh into a single cell suspension and stained with a panel of >30 antibodies against surface and intracellular antigens and >50,000 events were obtained by flow cytometry. 
@@ -36,7 +36,7 @@ minus_gold <- select(copd, -sample, -tumor)
 This shows us the the effect of COPD being present in the resected non-adjacent lung on immune cell phenotype in the resected tumor. In this case we define COPD as the presence of airflow obstruction based on GOLD stage (see code above).
 ![example showing the effect of COPD present in the resected non-adjacent lung on immune cell phenotype in the resected tumor](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/COPD_present_or_not.png)
 
-# t-Distributed Stochastic Neighbor Embedding (tSNE)
+### t-Distributed Stochastic Neighbor Embedding (tSNE)
 [t-Distributed Stochastic Neighbor Embedding (tSNE)](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) is an non-linear algorithm for performing dimensionality reduction, allowing visualization of complex multi-dimensional data in fewer dimensions while maintaining the overall structure of the data. tSNE was first described in 2008 and has become a widely used dimensional reduction technique (see the creator, [Laurens van der Maaten's website](https://lvdmaaten.github.io/tsne/) for more details). Importantly, tSNE is able to preserve *BOTH* the local and global structures of the data. tSNE was first described in 2008 and is a powerful and useful technique that can be done either natively in FloJo or R using the '''rTsne''' package.
 
 For a complete description of the underlying algorithm, see [here](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
@@ -72,12 +72,12 @@ While tSNE is a powerful and useful tool for analyzing immune cell populations, 
 - images can be deceptive; although tSNE space preserves the local and global aspects of the data, the relative area of different regions is not representative of the number of cells
 
 
-# Other techniques
+### Other techniques
 - [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets.
 - [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
 - 
 
-## version/to do
+### version/to do
 current version 0.1.1
 - [ ]current version 0.1.0 - this is a work in progress
 - [ ]need to cleanup the tSNE R code

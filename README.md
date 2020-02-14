@@ -33,6 +33,37 @@ copd <- select(copd, sample, tumor,                               # sample infor
 minus_gold <- select(copd, -sample, -tumor)
 ```
 
+```R
+# define the presence of COPD
+copd <- mutate(copd, new_gold = ifelse(gold_stage < 1, "No COPD present", "COPD present"))
+copd <- mutate(copd, new_goddard = ifelse(goddard_score < 0.5, "No emphysema present", "Emphysema present"))
+copd <- mutate(copd, new_copd_any_definition = ifelse(copd_anydefinition < 1, "No COPD", "COPD"))
+copd <- na.omit(copd)
+
+# select the correct cell types for inclusion
+copd <- select(copd, gold_stage, goddard_score, new_gold, new_goddard, colNames, sample, copd_anydefinition,
+               cd45, cd3, cd4, cd8, nkt, pmn, nk, b, #gdt, nk, b, mac, pmn,  # basic cell types
+               cd8ifng, th1, th17, treg, gdtil17, gdtifng,      # cytokine profiles
+              #cd4_pd1, cd8_pd1,                                # pd-1 expression
+              #pmnpdl1, macpdl1, monopdl1, nocd45pdl1,           # pd-l1 expression
+              #cd4_tim3, cd8_tim3,                                # tim3 expression
+              #cd4pd1tim3, cd8pd1tim3,                          # dual checkpoint expression
+               )          
+
+pr <- prcomp(minus_gold)
+pc_comps <- data.frame(pr$rotation)
+pc1_vars <- select(pc_comps, PC1)
+pc2_vars <- select(pc_comps, PC2)
+arrange(pc1_vars, PC1)
+
+# Write 2 axis PCA
+autoplot(pr, data = copd,
+         colour = "new_gold", frame = TRUE, frame.type = "norm",
+         #loadings = TRUE, loadings.label = TRUE, loadings.colour = "black"            # show eigenvectors
+         ) +
+         ggtitle(label = "COPD vs Non-COPD PCA")
+```
+
 This shows us the the effect of COPD being present in the resected non-adjacent lung on immune cell phenotype in the resected tumor. In this case we define COPD as the presence of airflow obstruction based on GOLD stage (see code above).
 ![example showing the effect of COPD present in the resected non-adjacent lung on immune cell phenotype in the resected tumor](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/COPD_present_or_not.png)
 

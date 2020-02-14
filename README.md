@@ -96,7 +96,7 @@ While tSNE is a powerful and useful tool for analyzing immune cell populations, 
 
 
 ### Other techniques
-- [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets.
+- [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets. UMAP is available as an R package [here](https://github.com/tkonopka/umap).
 - [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
 - 
 

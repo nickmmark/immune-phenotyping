@@ -105,7 +105,7 @@ Examining TCR sequences, consensus sequences, and shared sequences in both tumor
 - 
 
 ### version/to do
-current version 0.1.1
+current version 0.1.2
 - [ ]current version 0.1.0 - this is a work in progress
 - [ ]need to cleanup the tSNE R code
 - [ ]add more detailed examples and explanations

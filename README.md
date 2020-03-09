@@ -54,6 +54,7 @@ autoplot(pr, data = copd,
 ```
 
 This shows us the the effect of COPD being present in the resected non-adjacent lung on immune cell phenotype in the resected tumor. In this case we define COPD as the presence of airflow obstruction based on GOLD stage (see code above).
+
 ![example showing the effect of COPD present in the resected non-adjacent lung on immune cell phenotype in the resected tumor](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/COPD_present_or_not.png)
 
 ### t-Distributed Stochastic Neighbor Embedding (tSNE)

@@ -99,22 +99,22 @@ While tSNE is a powerful and useful tool for analyzing immune cell populations, 
 Examining TCR sequences, consensus sequences, and shared sequences in both tumor and adjacent tissue using the [```tcr``` R package](https://cran.r-project.org/web/packages/tcR/vignettes/tcrvignette.html).
 
 
-
 ### Other techniques
 - [Uniform Manifold Approximation and Projection](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf) (UMAP) - An alternative non-linear, non-deterministic, dimensional reduction algorithm. I have less experience using UMAP but it has some clear advantages including O(d*n^1.14) rather than O(n2) time complexity that make it appealing for large datasets. UMAP is available as an R package [here](https://github.com/tkonopka/umap).
 - [Hierarchical Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
 - 
 
 ### version/to do
-current version 0.1.2
+current version 0.1.3
 - [ ]current version 0.1.0 - this is a work in progress
 - [ ]need to cleanup the tSNE R code
 - [ ]add more detailed examples and explanations
 - [ ]add additional references
 
 ## references
-- Thorsson V et al, [The Immune Landscape of Cancer](https://www.ncbi.nlm.nih.gov/pubmed/29628290), Immunity. 2018
 - Mark NM et al, [Chronic Obstructive Pulmonary Disease Alters Immune Cell Composition and Immune Checkpoint Inhibitor Efficacy in Non-Small Cell Lung Cancer](https://www.ncbi.nlm.nih.gov/pubmed/28934595), AJRCCM 2018
+- Thorsson V et al, [The Immune Landscape of Cancer](https://www.ncbi.nlm.nih.gov/pubmed/29628290), Immunity. 2018
 - [FloJo tSNE documentation](http://docs.flowjo.com/d2/advanced-features/dimensionality-reduction/tsne/)
 - [Comprehensive Guide on t-SNE algorithm with implementation in R & Python](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)
 - Becht E et al, [Evaluation of UMAP as an alternative to t-SNE for single-cell data](https://www.biorxiv.org/content/biorxiv/early/2018/04/10/298430.full.pdf)
+- Nazarov, V.I., Pogorelyy, M.V., Komech, E.A. et al. tcR: an R package for T cell receptor repertoire advanced data analysis. BMC Bioinformatics 16, 175 (2015). https://doi.org/10.1186/s12859-015-0613-1

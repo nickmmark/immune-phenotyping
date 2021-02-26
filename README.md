@@ -20,7 +20,10 @@ _Overlapping immune cell phenotypes of tumor and lung samples_
 ![overlapping immune phenotypes of tumor and lung samples with Eigenvectors](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/lung%20tumor%20w%20eigenvectors.png)
 _Immune cell populations in tumor and lung samples with Eigenvectors shown_
 
-We can also look at other clinical parameters, such as if the sample came from a patient with COPD or not, based on either the degree of airflow obstruction ([GOLD stage](https://goldcopd.org/wp-content/uploads/2018/02/WMS-GOLD-2018-Feb-Final-to-print-v2.pdf)) or the degree of emphysema as measured radiologically ([Goddard score](https://www.researchgate.net/publication/316458451_Updates_in_computed_tomography_assessment_of_emphysema_using_computed_tomography_lung_analysis)).  For example:
+We can also look at other clinical parameters, such as if the sample came from a patient with COPD or not, based on either the degree of airflow obstruction ([GOLD stage](https://goldcopd.org/wp-content/uploads/2018/02/WMS-GOLD-2018-Feb-Final-to-print-v2.pdf)) or the degree of emphysema as measured radiologically ([Goddard score](https://www.researchgate.net/publication/316458451_Updates_in_computed_tomography_assessment_of_emphysema_using_computed_tomography_lung_analysis)).  Although the degree of emphysema and airflow obstruction are correlated there are phenotypic and immunologic differences, as seen below:
+![airflow obstruction versus emphysema](https://github.com/nickmmark/immune-phenotyping/blob/master/figures/gold%20goddard%20w%20image.png)
+
+For example:
 
 ```R
 # define the presence of COPD
